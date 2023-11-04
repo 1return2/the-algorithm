@@ -1,1 +1,37 @@
 
+#include <iostream>
+#include <stdio.h>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        std::sort(nums.begin(), nums.end());
+        for (int i = 0; i < nums.size() - 1; i++) {
+            if (nums[i] == nums[i + 1]) {
+                return true;
+            }
+        }
+        return false;
+    }
+};
+
+
+
+int main() {
+    Solution a;
+   
+    vector<int> arr;
+    arr.push_back(7);
+    arr.push_back(1);
+    arr.push_back(5);  // 加入一个重复元素测试
+    arr.push_back(3);
+    arr.push_back(6);
+    arr.push_back(4);
+    std::cout << a.containsDuplicate(arr) << std::endl;
+    return 0;
+}
+
+
